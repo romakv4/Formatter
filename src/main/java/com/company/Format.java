@@ -1,38 +1,43 @@
 package com.company;
 
 /**
- * Created by roman on 21.10.16.
+ *
  */
-public class Format {
-    public static String format(char[] buffer){
+final class Format {
+    /**
+     * This is a private constructor to eliminate errors.
+     */
+    private Format() { }
+    /**
+     *
+     * @param buffer is an array in which the text file is considered.
+     * @return returns a formatted text.
+     */
+    static String format(final char[] buffer) {
         StringBuilder sb = new StringBuilder();
         int level = 0;
-        for (int i = 0; i < buffer.length; i++) {
-            if(buffer[i] == '{'){
+        for (char i: buffer) {
+            if (i == '{') {
                 level++;
-                sb.append(buffer[i] + "\n");
+                sb.append(i).append("\n");
+                for (int j = 0; j < level; j++) {
+                    sb.append("\t");
+                }
+            } else if (i == ';') {
+                sb.append(i).append("\n");
                 for (int j = 0; j < level; j++) {
                     sb.append("\t");
                 }
 
-            }
-            else if(buffer[i] == ';'){
-                sb.append(buffer[i] + "\n");
-                for (int j = 0; j < level; j++) {
-                    sb.append("\t");
-                }
-
-            }
-            else if (buffer[i] == '}'){
-                sb.deleteCharAt(sb.length()-1);
-                sb.append(buffer[i] + "\n");
+            } else if (i == '}') {
+                sb.deleteCharAt(sb.length() - 1);
+                sb.append(i).append("\n");
                 level--;
                 for (int j = 0; j < level; j++) {
                     sb.append("\t");
                 }
-            }
-            else{
-                sb.append(buffer[i]);
+            } else {
+                sb.append(i);
             }
         }
         return sb.toString();

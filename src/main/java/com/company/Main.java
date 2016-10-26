@@ -1,13 +1,20 @@
 package com.company;
 
-public class Main {
-
-    public static void main(String[] args) {
-	// write your code here
-        com.company.Reader read = new com.company.Reader();
-
-        com.company.Format format = new com.company.Format();
-        System.out.print(format.format(read.read()));
-
+/**
+ * Main class.
+ */
+final class Main {
+    /**
+     * private constructor to eliminate errors.
+     */
+    private Main() { }
+    /**
+     *
+     * @param args is unused.
+     * This is a main method. It is works.
+     */
+    public static void main(final String[] args) {
+    com.company.Reader read = new com.company.Reader();
+        System.out.print(Format.format(read.read()));
     }
 }
