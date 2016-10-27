@@ -1,10 +1,5 @@
 *.class
-*.iml
-*.txt
 .idea/
-target/
-out/
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
