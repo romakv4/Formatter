@@ -22,6 +22,5 @@ final class Main {
         FileWriter fw = new FileWriter("formattedText");
         fw.write(Format.format(read.read()));
         fw.flush();
-        //System.out.print(Format.format(read.read()));
     }
 }
