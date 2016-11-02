@@ -30,7 +30,7 @@ abstract class Formatter implements IFormatter {
      * @param buffer is an array in which the text file is considered.
      * @return returns a formatted text.
      */
-    static String format(final char[] buffer) {
+    public String format(final char[] buffer) {
         StringBuilder sb = new StringBuilder();
         int level = 0;
         for (char i: buffer) {

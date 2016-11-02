@@ -5,4 +5,5 @@ package com.company;
  */
 interface IFormatter {
     char[] read();
+    String format(final char[] buffer);
 }

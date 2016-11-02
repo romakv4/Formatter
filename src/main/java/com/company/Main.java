@@ -17,9 +17,9 @@ final class Main {
      * This is a main method. It is works.
      */
     public static void main(final String[] args) throws IOException {
-        Formatter read = new Formatter() {};
+        Formatter formatter = new Formatter() {};
         FileWriter fw = new FileWriter("formattedText");
-        fw.write(Formatter.format(read.read()));
+        fw.write(formatter.format(formatter.read()));
         fw.flush();
     }
 }
