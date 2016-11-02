@@ -1,13 +1,30 @@
 package com.company;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
- *
+ * Formatter class read from a file to char array.
  */
-final class Format {
+abstract class Formatter implements IFormatter {
     /**
-     * This is a private constructor to eliminate errors.
+     *
+     * @return returns an array of characters read.
      */
-    private Format() { }
+    public char[] read() {
+        String filePath = "src//main//resources//text.txt";
+        File f = new File(filePath);
+        final char[] buffer = new char[(int) f.length()];
+        int read = 0;
+        try (FileReader reader = new FileReader(f)) {
+            read = reader.read(buffer);
+        }
+        catch (IOException ex) {
+            System.out.println(ex.getMessage() + read);
+        }
+        return buffer;
+    }
     /**
      *
      * @param buffer is an array in which the text file is considered.

@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -18,9 +17,9 @@ final class Main {
      * This is a main method. It is works.
      */
     public static void main(final String[] args) throws IOException {
-    com.company.Reader read = new com.company.Reader();
+        Formatter read = new Formatter() {};
         FileWriter fw = new FileWriter("formattedText");
-        fw.write(Format.format(read.read()));
+        fw.write(Formatter.format(read.read()));
         fw.flush();
     }
 }
