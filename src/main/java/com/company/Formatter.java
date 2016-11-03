@@ -2,12 +2,13 @@ package com.company;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
  * Formatter class read from a file to char array.
  */
-abstract class Formatter implements IFormatter {
+class Formatter implements IFormatter {
     /**
      *
      * @return returns an array of characters read.
@@ -58,5 +59,26 @@ abstract class Formatter implements IFormatter {
             }
         }
         return sb.toString();
+    }
+
+    void writer() {
+        Formatter formatter = new Formatter() { };
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter("formattedText");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            assert fw != null;
+            fw.write(formatter.format(formatter.read()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
