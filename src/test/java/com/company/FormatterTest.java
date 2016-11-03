@@ -3,8 +3,9 @@ package com.company;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.*;
-import java.util.Scanner;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Tests for formatter.

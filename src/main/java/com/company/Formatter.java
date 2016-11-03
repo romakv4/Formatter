@@ -10,20 +10,14 @@ import java.io.IOException;
  */
 class Formatter implements IFormatter {
     /**
-     *
      * @return returns an array of characters read.
      */
-    public char[] read() {
+    public char[] read() throws IOException {
         String filePath = "src//main//resources//text.txt";
         File f = new File(filePath);
         final char[] buffer = new char[(int) f.length()];
-        int read = 0;
-        try (FileReader reader = new FileReader(f)) {
-            read = reader.read(buffer);
-        }
-        catch (IOException ex) {
-            System.out.println(ex.getMessage() + read);
-        }
+        FileReader reader = new FileReader(f);
+        reader.read(buffer);
         return buffer;
     }
     /**
@@ -61,24 +55,11 @@ class Formatter implements IFormatter {
         return sb.toString();
     }
 
-    void writer() {
+    void writer() throws IOException {
         Formatter formatter = new Formatter() { };
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter("formattedText");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            assert fw != null;
-            fw.write(formatter.format(formatter.read()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            fw.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FileWriter fw = new FileWriter("formattedText");
+        fw.write(formatter.format(formatter.read()));
+        fw.flush();
+
     }
 }
