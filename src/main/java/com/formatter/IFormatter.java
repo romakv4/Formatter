@@ -1,15 +1,9 @@
-package com.company;
-
-import java.io.IOException;
-
+package com.formatter;
 /**
  * Interface for formatter.
  */
 interface IFormatter {
-    /**
-     * @return text from file.
-     */
-    char[] read() throws IOException;
+
     /**
      *
      * @param buffer - array for text.

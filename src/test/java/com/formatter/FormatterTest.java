@@ -1,4 +1,4 @@
-package com.company;
+package com.formatter;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,9 +14,8 @@ public class FormatterTest {
     @Test
     public void read() throws Exception {
         String controlData = "public{{{asdasdasdasd;adsdgfdgsdffsf;safdgfdbsfdsfvfsggd;}}}";
-        Formatter form = new Formatter();
-        Assert.assertEquals(controlData, new String(form.read()));
-
+        Reader reader = new Reader();
+        Assert.assertEquals(controlData, new String(reader.read()));
     }
 
     @Test
@@ -25,8 +24,9 @@ public class FormatterTest {
                 "asdasdasdasd;\n\t\t\tadsdgfdgsdffsf;\n\t\t\t" +
                 "safdgfdbsfdsfvfsggd;\n\t\t}\n\t}\n}\n";
         Formatter form = new Formatter();
+        Reader reader = new Reader();
         System.out.println(controlData);
-        Assert.assertEquals(controlData, form.format(form.read()));
+        Assert.assertEquals(controlData, form.format(reader.read()));
     }
 
     @Test

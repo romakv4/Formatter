@@ -1,7 +1,14 @@
 package com.formatter;
 
+import java.io.IOException;
+
 /**
- * Created by roman on 04.11.16.
+ * Interface for writer.
  */
-public interface IWriter {
+interface IWriter {
+    /**
+     *
+     * @throws IOException for writer.
+     */
+    void writer() throws IOException;
 }

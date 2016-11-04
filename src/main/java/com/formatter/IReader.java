@@ -1,7 +1,14 @@
 package com.formatter;
 
+import java.io.IOException;
+
 /**
- * Created by roman on 04.11.16.
+ * Interface for reader.
  */
-public interface IReader {
+interface IReader {
+    /**
+     * @throws IOException for read method.
+     * @return text from file.
+     */
+    char[] read() throws IOException;
 }

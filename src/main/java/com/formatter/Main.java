@@ -1,20 +1,22 @@
-package com.company;
+package com.formatter;
 
 import java.io.IOException;
 
 /**
  * Main class.
  */
-final class Main {
+public class Main {
     /**
-     *
+     * @throws IOException for main method.
      * @param args is unused.
      * This is a main method. It is works.
      */
     public static void main(final String[] args) throws IOException {
         Formatter formatter = new Formatter();
-        formatter.read();
-        formatter.format(formatter.read());
-        formatter.writer();
+        Reader reader = new Reader();
+        Writer writer = new Writer();
+        reader.read();
+        formatter.format(reader.read());
+        writer.writer();
     }
 }

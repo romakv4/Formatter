@@ -1,4 +1,4 @@
-package com.company;
+package com.formatter;
 
 import org.junit.Test;
 
