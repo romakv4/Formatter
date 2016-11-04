@@ -10,6 +10,7 @@ import java.io.IOException;
  */
 class Formatter implements IFormatter {
     /**
+     * @throws IOException for read() method.
      * @return returns an array of characters read.
      */
     public char[] read() throws IOException {
@@ -21,7 +22,6 @@ class Formatter implements IFormatter {
         return buffer;
     }
     /**
-     *
      * @param buffer is an array in which the text file is considered.
      * @return returns a formatted text.
      */
@@ -55,6 +55,10 @@ class Formatter implements IFormatter {
         return sb.toString();
     }
 
+    /**
+     * This method writes the code in the file.
+     * @throws IOException
+     */
     void writer() throws IOException {
         Formatter formatter = new Formatter() { };
         FileWriter fw = new FileWriter("formattedText");
