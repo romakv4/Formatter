@@ -1,23 +1,40 @@
 package com.formatter;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
  * Class writer.
  */
-class Writer extends Reader implements IWriter {
+class Writer implements IWriter {
+    /**
+     * THIS IS BUFFER!
+     */
+    private BufferedWriter buffer;
+    /**
+     *
+     * @param file for writer.
+     * @throws IOException for Writer class.
+     */
+    Writer(final String file) throws IOException {
+        buffer = new BufferedWriter(new FileWriter(file));
+    }
 
     /**
-     * This method writes the code in the file.
-     * @throws IOException for writer().
+     *
+     * @param ch for writeChar.
+     * @throws IOException for writeChar.
      */
-    public void writer() throws IOException {
-        Formatter formatter = new Formatter() { };
-        Reader reader = new Reader();
-        FileWriter fw = new FileWriter("formattedText");
-        fw.write(formatter.format(reader.read()));
-        fw.flush();
+    public void writeChar(final char ch) throws IOException {
+        buffer.append(ch);
+    }
 
+    /**
+     *
+     * @throws IOException for close.
+     */
+    public void close() throws IOException {
+        buffer.close();
     }
 }

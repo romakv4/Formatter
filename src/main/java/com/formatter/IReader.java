@@ -7,8 +7,17 @@ import java.io.IOException;
  */
 interface IReader {
     /**
-     * @throws IOException for read method.
-     * @return text from file.
+     *
+     * @return true if file not empty.
+     * @throws IOException for hasChar.
      */
-    char[] read() throws IOException;
+    boolean hasChar() throws IOException;
+
+    /**
+     *
+     * @return buffer with char.
+     * @throws IOException for readChar.
+     */
+    char readChar() throws IOException;
+
 }

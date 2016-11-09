@@ -8,7 +8,14 @@ import java.io.IOException;
 interface IWriter {
     /**
      *
-     * @throws IOException for writer.
+     * @param ch for writeChar.
+     * @throws IOException for writeChar.
      */
-    void writer() throws IOException;
+    void writeChar(char ch) throws IOException;
+
+    /**
+     * Method for closing file.
+     * @throws IOException for close.
+     */
+    void close() throws IOException;
 }

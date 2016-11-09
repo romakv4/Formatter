@@ -1,6 +1,8 @@
 package com.formatter;
 
-import java.io.File;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -9,15 +11,33 @@ import java.io.IOException;
  */
 class Reader implements IReader {
     /**
-     * @throws IOException for read() method.
-     * @return returns an array of characters read.
+     * THIS IS BUFFER!
      */
-    public char[] read() throws IOException {
-        String filePath = "src//main//resources//text.txt";
-        File f = new File(filePath);
-        final char[] buffer = new char[(int) f.length()];
-        FileReader reader = new FileReader(f);
-        reader.read(buffer);
-        return buffer;
+    private BufferedReader buffer;
+    /**
+     *
+     * @param file for name of file.
+     * @throws FileNotFoundException for Reader class.
+     */
+    Reader(final String file) throws FileNotFoundException {
+        buffer = new BufferedReader(new FileReader(file));
+    }
+
+    /**
+     *
+     * @return buffer ready or no.
+     * @throws IOException for hasChar.
+     */
+    public boolean hasChar() throws IOException {
+        return buffer.ready();
+    }
+
+    /**
+     *
+     * @return chars.
+     * @throws IOException for readChar.
+     */
+    public char readChar() throws IOException {
+        return (char) buffer.read();
     }
 }

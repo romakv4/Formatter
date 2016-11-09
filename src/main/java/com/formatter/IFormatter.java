@@ -1,13 +1,16 @@
 package com.formatter;
+
+import java.io.IOException;
+
 /**
  * Interface for formatter.
  */
 interface IFormatter {
-
     /**
      *
-     * @param buffer - array for text.
-     * @return return formatted text.
+     * @param rd for read methods.
+     * @param wrt for write methods.
+     * @throws IOException for format.
      */
-    String format(char[] buffer);
+    void format(IReader rd, IWriter wrt) throws IOException;
 }

@@ -1,49 +1,42 @@
 package com.formatter;
 
-import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+
 /**
- * Tests for formatter.
+ * Test for formatter.
  */
 public class FormatterTest {
-    @Test
-    public void read() throws Exception {
-        String controlData = "public{{{asdasdasdasd;adsdgfdgsdffsf;safdgfdbsfdsfvfsggd;}}}";
-        Reader reader = new Reader();
-        Assert.assertEquals(controlData, new String(reader.read()));
-    }
+    private Formatter f;
+    private Reader r;
+    private Writer w;
 
+    @Before
+    public void setUp() throws IOException {
+        f = new Formatter();
+        r = new Reader("input");
+        w = new Writer("output");
+    }
     @Test
     public void format() throws Exception {
-        String controlData = "public{\n\t{\n\t\t{\n\t\t\t" +
-                "asdasdasdasd;\n\t\t\tadsdgfdgsdffsf;\n\t\t\t" +
-                "safdgfdbsfdsfvfsggd;\n\t\t}\n\t}\n}\n";
-        Formatter form = new Formatter();
-        Reader reader = new Reader();
-        System.out.println(controlData);
-        Assert.assertEquals(controlData, form.format(reader.read()));
+        f.format(r, w);
+        BufferedReader controlData = new BufferedReader(new FileReader("template"));
+        BufferedReader result = new BufferedReader(new FileReader("output"));
+        StringBuilder s1 = new StringBuilder();
+        StringBuilder s2 = new StringBuilder();
+        while (controlData.ready()) {
+            s1.append(controlData.read());
+        }
+        while (result.ready()) {
+            s2.append(result.read());
+        }
+        assertEquals(s1.toString(), s2.toString());
     }
 
-    @Test
-    public void writer() {
-        String controlData = "public{\n\t{\n\t\t{\n\t\t\t" +
-                "asdasdasdasd;\n\t\t\tadsdgfdgsdffsf;\n\t\t\t" +
-                "safdgfdbsfdsfvfsggd;\n\t\t}\n\t}\n}\n";
-
-        File f=new File("formattedText");
-        try(FileReader reader = new FileReader(f))
-        {
-            char[] buffer = new char[(int)f.length()];
-            reader.read(buffer);
-            Assert.assertEquals(controlData, new String(buffer));
-        }
-        catch(IOException ex){
-            System.out.println(ex.getMessage());
-        }
-    }
 }

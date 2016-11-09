@@ -2,15 +2,25 @@ package com.formatter;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+
+import static org.junit.Assert.*;
+
 /**
- * Test for main.
+ * Tests for main.
  */
 public class MainTest {
     @Test
     public void main() throws Exception {
-        Main mainClass = new Main();
-        String[] string = {};
-        mainClass.main(string);
+        Main.main(null);
     }
-
+    @Test
+    public void testConstructorIsPrivate() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor<Main> constructor = Main.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        constructor.setAccessible(true);
+        constructor.newInstance();
+    }
 }
