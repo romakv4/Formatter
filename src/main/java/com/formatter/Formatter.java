@@ -11,7 +11,7 @@ class Formatter implements IFormatter {
      * @param wrt for write methods.
      * @throws IOException for format.
      */
-    public void format(final IReader rd, final IWriter wrt) throws IOException {
+    public void format(final IReader rd, final IWriter wrt) throws IOException, ReaderException {
         char ch;
         int level = 0;
         while (rd.hasChar()) {
@@ -83,7 +83,7 @@ class Formatter implements IFormatter {
      * @return string.
      * @throws IOException for safeRead.
      */
-    String safeRead(final IReader rd) throws IOException {
+    String safeRead(final IReader rd) throws IOException, ReaderException {
         StringBuilder buffer = new StringBuilder();
         char nextChar = 0;
         while (rd.hasChar()) {

@@ -15,7 +15,7 @@ final class Main {
      * @param args is not used.
      * @throws IOException for main.
      */
-    public static void main(final String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException, ReaderException {
         Formatter formatter = new Formatter();
         Writer wr = new Writer("output");
         Reader re = new Reader("input");
