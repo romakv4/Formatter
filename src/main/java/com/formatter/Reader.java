@@ -28,8 +28,12 @@ class Reader implements IReader {
      * @return buffer ready or no.
      * @throws IOException for hasChar.
      */
-    public boolean hasChar() throws IOException {
-        return buffer.ready();
+    public boolean hasChar() throws ReaderException {
+        try {
+            return buffer.ready();
+        } catch (IOException e) {
+            throw new ReaderException("Buffer is not ready!");
+        }
     }
 
     /**
