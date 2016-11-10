@@ -10,6 +10,7 @@ interface IReader {
      *
      * @return true if file not empty.
      * @throws IOException for hasChar.
+     * @throws ReaderException for hasChar.
      */
     boolean hasChar() throws IOException, ReaderException;
 

@@ -10,8 +10,10 @@ class Formatter implements IFormatter {
      * @param rd  for read methods.
      * @param wrt for write methods.
      * @throws IOException for format.
+     * @throws ReaderException for format.
      */
-    public void format(final IReader rd, final IWriter wrt) throws IOException, ReaderException {
+    public void format(final IReader rd, final IWriter wrt)
+            throws IOException, ReaderException {
         char ch;
         int level = 0;
         while (rd.hasChar()) {
@@ -82,8 +84,10 @@ class Formatter implements IFormatter {
      * @param rd for chars.
      * @return string.
      * @throws IOException for safeRead.
+     * @throws ReaderException for safeRead.
      */
-    String safeRead(final IReader rd) throws IOException, ReaderException {
+    String safeRead(final IReader rd)
+            throws IOException, ReaderException {
         StringBuilder buffer = new StringBuilder();
         char nextChar = 0;
         while (rd.hasChar()) {

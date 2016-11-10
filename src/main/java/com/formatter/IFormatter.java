@@ -11,6 +11,7 @@ interface IFormatter {
      * @param rd for read methods.
      * @param wrt for write methods.
      * @throws IOException for format.
+     * @throws ReaderException for format.
      */
     void format(IReader rd, IWriter wrt) throws IOException, ReaderException;
 }

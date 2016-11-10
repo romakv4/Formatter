@@ -27,6 +27,7 @@ class Reader implements IReader {
      *
      * @return buffer ready or no.
      * @throws IOException for hasChar.
+     * @throws ReaderException hasChar.
      */
     public boolean hasChar() throws ReaderException {
         try {
