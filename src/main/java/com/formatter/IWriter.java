@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * Interface for writer.
  */
-interface IWriter {
+public interface IWriter {
     /**
      *
      * @param ch for writeChar.

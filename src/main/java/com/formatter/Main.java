@@ -17,7 +17,7 @@ final class Main {
      * @throws ReaderException for main.
      */
     public static void main(final String[] args)
-            throws IOException, ReaderException {
+            throws IOException, ReaderException, FormatterException {
         Formatter formatter = new Formatter();
         Writer wr = new Writer("output");
         Reader re = new Reader("input");

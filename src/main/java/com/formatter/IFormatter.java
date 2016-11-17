@@ -13,5 +13,5 @@ interface IFormatter {
      * @throws IOException for format.
      * @throws ReaderException for format.
      */
-    void format(IReader rd, IWriter wrt) throws IOException, ReaderException;
+    void format(IReader rd, IWriter wrt) throws IOException, ReaderException, FormatterException;
 }
