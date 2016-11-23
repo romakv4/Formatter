@@ -17,16 +17,19 @@ class Reader implements IReader {
     /**
      *
      * @param file for name of file.
-     * @throws FileNotFoundException for Reader class.
+     * @throws ReaderException for Reader class.
      */
-    Reader(final String file) throws FileNotFoundException {
-        buffer = new BufferedReader(new FileReader(file));
+    Reader(final String file) throws ReaderException {
+        try {
+            buffer = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            throw new ReaderException("File did not read");
+        }
     }
 
     /**
      *
      * @return buffer ready or no.
-     * @throws IOException for hasChar.
      * @throws ReaderException hasChar.
      */
     public boolean hasChar() throws ReaderException {
@@ -40,9 +43,13 @@ class Reader implements IReader {
     /**
      *
      * @return chars.
-     * @throws IOException for readChar.
+     * @throws ReaderException for readChar.
      */
-    public char readChar() throws IOException {
-        return (char) buffer.read();
+    public char readChar() throws ReaderException {
+        try {
+            return (char) buffer.read();
+        } catch (IOException e) {
+            throw new ReaderException("Character did not read");
+        }
     }
 }

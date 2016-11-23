@@ -17,7 +17,7 @@ public class ReaderTest {
     private Reader r;
 
     @Before
-    public void setUp() throws FileNotFoundException {
+    public void setUp() throws FileNotFoundException, ReaderException {
         r = new Reader("input");
         r2 = new BufferedReader(new FileReader("input"));
     }

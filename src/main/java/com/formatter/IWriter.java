@@ -1,7 +1,5 @@
 package com.formatter;
 
-import java.io.IOException;
-
 /**
  * Interface for writer.
  */
@@ -9,13 +7,13 @@ public interface IWriter {
     /**
      *
      * @param ch for writeChar.
-     * @throws IOException for writeChar.
+     * @throws WriterException for writeChar.
      */
-    void writeChar(char ch) throws IOException;
+    void writeChar(char ch) throws WriterException;
 
     /**
      * Method for closing file.
-     * @throws IOException for close.
+     * @throws WriterException for close.
      */
-    void close() throws IOException;
+    void close() throws WriterException;
 }

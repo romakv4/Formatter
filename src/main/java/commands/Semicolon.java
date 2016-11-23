@@ -1,15 +1,13 @@
-package Commands;
+package commands;
 
-import com.formatter.IWriter;
-
-import java.io.IOException;
+import com.formatter.WriterException;
 
 /**
  * class for semicolon.
  */
 class Semicolon implements ICommand {
     @Override
-    public void execute(Context cont) {
+    public void execute(final Context cont) throws CommandException {
         try {
             cont.wrt.writeChar(';');
             if (cont.nextChar != '/') {
@@ -18,8 +16,9 @@ class Semicolon implements ICommand {
                     cont.wrt.writeChar('\t');
                 }
             }
-        } catch (IOException ignored) {
-
+        } catch (WriterException e) {
+            throw new CommandException(e.getMessage() + "\n"
+                    + "Error in Semicolon");
         }
     }
 }
