@@ -7,11 +7,27 @@ import com.formatter.WriterException;
  * All context of program.
  */
 public class Context {
+    /**
+     * ch for current char.
+     */
     public char ch;
+    /**
+     * Next char.
+     */
     public char nextChar;
+    /**
+     * Level of brackets tabs.
+     */
     int level = 0;
+    /**
+     * wrt for IWriter.
+     */
     IWriter wrt;
 
+    /**
+     *
+     * @param wr it is writer.
+     */
     public Context(final IWriter wr) {
         this.wrt = wr;
     }
