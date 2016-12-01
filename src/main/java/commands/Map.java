@@ -33,7 +33,7 @@ public class Map {
         conditions.put('}', new CloseBrace());
         conditions.put(';', new Semicolon());
         conditions.put('\n', new NewLine());
-        conditions.put('/', new BeginOfBlockComment());
+        conditions.put('/', new BeginOfComment());
         conditions.put('*', new EndOfBlockComment());
         conditions.put(null, new OtherChars());
     }

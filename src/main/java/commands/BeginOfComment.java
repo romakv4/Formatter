@@ -5,7 +5,7 @@ import com.formatter.WriterException;
 /**
  * Class for begin block of comment.
  */
-class BeginOfBlockComment implements ICommand {
+class BeginOfComment implements ICommand {
 
     /**
      *
@@ -22,7 +22,7 @@ class BeginOfBlockComment implements ICommand {
             cont.wrt.writeChar(cont.ch);
         } catch (WriterException e) {
             throw new CommandException(e.getMessage() + "\n"
-                    + "Error in BeginOfBlockComment");
+                    + "Error in BeginOfComment");
         }
     }
 }
