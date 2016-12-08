@@ -9,7 +9,7 @@ public class FormatterException extends Exception {
      *
      * @param message it is message from FormatterException.
      */
-    FormatterException(final String message) {
+    public FormatterException(final String message) {
         super(message);
     }
 }

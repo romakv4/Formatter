@@ -1,4 +1,4 @@
-package com.formatter;
+package writer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Class writer.
  */
-class Writer implements IWriter {
+public class Writer implements IWriter {
     /**
      * THIS IS BUFFER!
      */
@@ -17,7 +17,7 @@ class Writer implements IWriter {
      * @param file for writer.
      * @throws WriterException for Writer class.
      */
-    Writer(final String file) throws WriterException {
+    public Writer(final String file) throws WriterException {
         try {
             buffer = new BufferedWriter(new FileWriter(file));
         } catch (IOException e) {
@@ -30,7 +30,7 @@ class Writer implements IWriter {
      * @param ch for writeChar.
      * @throws WriterException for writeChar.
      */
-    public void writeChar(final char ch) throws WriterException {
+    public final void writeChar(final char ch) throws WriterException {
         try {
             buffer.append(ch);
         } catch (IOException e) {
@@ -42,7 +42,7 @@ class Writer implements IWriter {
      *
      * @throws WriterException for close.
      */
-    public void close() throws WriterException {
+    public final void close() throws WriterException {
         try {
             buffer.close();
         } catch (IOException e) {

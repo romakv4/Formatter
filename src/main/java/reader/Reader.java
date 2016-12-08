@@ -1,4 +1,4 @@
-package com.formatter;
+package reader;
 
 
 import java.io.BufferedReader;
@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Class for read method.
  */
-class Reader implements IReader {
+public class Reader implements IReader {
     /**
      * THIS IS BUFFER!
      */
@@ -19,7 +19,7 @@ class Reader implements IReader {
      * @param file for name of file.
      * @throws ReaderException for Reader class.
      */
-    Reader(final String file) throws ReaderException {
+    public Reader(final String file) throws ReaderException {
         try {
             buffer = new BufferedReader(new FileReader(file));
         } catch (FileNotFoundException e) {
@@ -32,7 +32,7 @@ class Reader implements IReader {
      * @return buffer ready or no.
      * @throws ReaderException hasChar.
      */
-    public boolean hasChar() throws ReaderException {
+    public final boolean hasChar() throws ReaderException {
         try {
             return buffer.ready();
         } catch (IOException e) {
@@ -45,7 +45,7 @@ class Reader implements IReader {
      * @return chars.
      * @throws ReaderException for readChar.
      */
-    public char readChar() throws ReaderException {
+    public final char readChar() throws ReaderException {
         try {
             return (char) buffer.read();
         } catch (IOException e) {

@@ -2,6 +2,10 @@ package com.formatter;
 
 import org.junit.Before;
 import org.junit.Test;
+import reader.Reader;
+import reader.ReaderException;
+import writer.Writer;
+import writer.WriterException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

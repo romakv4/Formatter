@@ -2,6 +2,8 @@ package com.formatter;
 
 import org.junit.Before;
 import org.junit.Test;
+import reader.Reader;
+import reader.ReaderException;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

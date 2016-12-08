@@ -1,4 +1,4 @@
-package com.formatter;
+package writer;
 
 /**
  * Interface for writer.

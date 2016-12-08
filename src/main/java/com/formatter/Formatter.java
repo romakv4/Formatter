@@ -3,6 +3,10 @@ package com.formatter;
 import commands.CommandException;
 import commands.Context;
 import commands.Map;
+import reader.IReader;
+import reader.ReaderException;
+import writer.IWriter;
+import writer.WriterException;
 
 /**
  * Formatter class read from a file to char array.

@@ -1,6 +1,6 @@
 package commands;
 
-import com.formatter.WriterException;
+import writer.WriterException;
 
 /**
  * class for other chars.

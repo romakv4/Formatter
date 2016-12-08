@@ -1,5 +1,10 @@
 package com.formatter;
 
+import reader.Reader;
+import reader.ReaderException;
+import writer.Writer;
+import writer.WriterException;
+
 /**
  * Main class.
  */

@@ -1,6 +1,6 @@
 package commands;
 
-import com.formatter.WriterException;
+import writer.WriterException;
 
 /**
  * class for semicolon.
@@ -9,7 +9,7 @@ class Semicolon implements ICommand {
     @Override
     public void execute(final Context cont) throws CommandException {
         try {
-            cont.wrt.writeChar(';');
+            cont.wrt.writeChar(cont.ch);
             if (cont.nextChar != '/') {
                 cont.wrt.writeChar('\n');
                 for (int j = 0; j < cont.level; j++) {

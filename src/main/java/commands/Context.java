@@ -1,7 +1,7 @@
 package commands;
 
-import com.formatter.IWriter;
-import com.formatter.WriterException;
+import writer.IWriter;
+import writer.WriterException;
 
 /**
  * All context of program.

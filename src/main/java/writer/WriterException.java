@@ -1,13 +1,13 @@
-package com.formatter;
+package writer;
 
 /**
  * My first exception.
  */
-class ReaderException extends Exception {
+public class WriterException extends Exception {
     /**
      * @param message it's exception throws if buffer is not ready.
      */
-    ReaderException(final String message) {
+    public WriterException(final String message) {
         super(message);
     }
 }

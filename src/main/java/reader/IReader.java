@@ -1,9 +1,9 @@
-package com.formatter;
+package reader;
 
 /**
  * Interface for reader.
  */
-interface IReader {
+public interface IReader {
     /**
      *
      * @return true if file not empty.
